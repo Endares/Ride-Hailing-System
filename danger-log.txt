@@ -1,0 +1,13 @@
+Danger log of Ride System designed by Yanbo Zhang(yz945) and Sienna Zheng(sz318):
+
+1. User Creation: There is no valid check for user's email address as we didn't develop the authentication code test process. However, it would be able to check for invalid usernames if a user tries to create an account by an existing username.
+
+2. Search for Shared Rides: If a user wants to search for an existing, unconfirmed shared ride, they'll need to type in their detailed requests in the boxes, then hit "Search" for the HTTP to get a "POST" request, then they'll be able to join any rides in the search results. If they don't hit "Search", there won't be a check for qualification.
+
+3. Malicious users may join a ride with huge number of people in their party, so that it will exceeds all drivers' vehicle capacity. As a result, the ride owner will have no driver to pick them up. However, the ride owner always has a chance to edit their unconfirmed shared ride as unshared, so the system will delete all the shared parties in that ride immediately.
+
+4. Any ride sharer can see shared rides' full information, including the username of ride owner and other ride sharers, it might lack some privacy protection if the users use their real names for username.
+
+5. User session: Our system has a good use of user session to maintain a user's login/logout status. If a malicious user wants to access another user (userA)'s homepage by directly typing the URL ride_system/userA/, he'll fail unless he provides the correct username and password for userA to get the user session.
+
+6. Driver confirm the ride he owns: Our system doesn't check if it is legal for a driver to confirm a ride he owns/shares.
